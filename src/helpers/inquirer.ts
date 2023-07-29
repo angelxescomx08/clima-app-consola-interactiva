@@ -8,31 +8,15 @@ const preguntas: QuestionCollection<any> = [
     message: "¿Qué desea hacer?",
     choices: [
       {
-        value: "1",
-        name: `${color.green("1.")} Crear tarea`,
+        value: 1,
+        name: `${color.green("1.")} Buscar ciudad`,
       },
       {
-        value: "2",
-        name: `${color.green("2.")} Listar tareas`,
+        value: 2,
+        name: `${color.green("2.")} Historial`,
       },
       {
-        value: "3",
-        name: `${color.green("3.")} Listar tareas completadas`,
-      },
-      {
-        value: "4",
-        name: `${color.green("4.")} Listar tareas pendientes`,
-      },
-      {
-        value: "5",
-        name: `${color.green("5.")} Completar tarea(s)`,
-      },
-      {
-        value: "6",
-        name: `${color.green("6.")} Borrar tarea`,
-      },
-      {
-        value: "0",
+        value: 0,
         name: `${color.green("0.")} Salir`,
       },
     ],
