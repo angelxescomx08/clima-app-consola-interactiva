@@ -1,4 +1,9 @@
-import { inquirerMenu, pausa, readInput } from "./helpers/inquirer";
+import {
+  inquirerMenu,
+  listarLugares,
+  pausa,
+  readInput,
+} from "./helpers/inquirer";
 import { Busquedas } from "./models/busquedas";
 import colors from "colors";
 
@@ -12,12 +17,16 @@ const main = async () => {
       case 1:
         const lugar = await readInput("Ciudad:");
 
-        await busquedas.ciudad(lugar);
+        const lugares = await busquedas.ciudad(lugar);
+
+        const id = await listarLugares(lugares);
+
+        const lugarSeleccionado = lugares.find((lugar) => lugar.id === id);
 
         console.log(colors.green("\nInformación de la ciudad"));
-        console.log("Ciudad:");
-        console.log("Lat:");
-        console.log("Lng:");
+        console.log("Ciudad:", lugarSeleccionado?.nombre);
+        console.log("Lat:", lugarSeleccionado?.lat);
+        console.log("Lng:", lugarSeleccionado?.lng);
         console.log("Temperatura:");
         console.log("Mínima:");
         console.log("Máxima:");

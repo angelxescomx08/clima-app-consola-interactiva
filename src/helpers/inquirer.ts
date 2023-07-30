@@ -1,5 +1,6 @@
 import inquirer, { Answers, QuestionCollection } from "inquirer";
 import color from "colors";
+import { Lugar } from "../interfaces";
 
 const preguntas: QuestionCollection<any> = [
   {
@@ -57,10 +58,10 @@ export const readInput = async (message: string) => {
   return description;
 };
 
-/* export const listadoTareasBorrar = async (tareas: Tarea[]) => {
-  const choices = tareas.map((tarea, index) => ({
-    value: tarea.id,
-    name: `${color.green(`${index + 1}.`)} ${tarea.description}`,
+export const listarLugares = async (lugares: Lugar[]) => {
+  const choices = lugares.map((lugar, index) => ({
+    value: lugar.id,
+    name: `${color.green(`${index + 1}.`)} ${lugar.nombre}`,
   }));
   choices.unshift({
     value: "0",
@@ -70,13 +71,13 @@ export const readInput = async (message: string) => {
     {
       type: "list",
       name: "id",
-      message: "borrar",
+      message: "Seleccione lugar:",
       choices,
     },
   ];
   const { id } = await inquirer.prompt(preguntas);
   return id;
-}; */
+};
 
 export const confirmar = async (message: string) => {
   const question: QuestionCollection<Answers> = [
